@@ -1,0 +1,46 @@
+<html>
+
+<head>
+
+<title>Information</title>
+
+</head>
+
+<h1>Information on stored batches</h1>
+
+<body>
+
+Please choose what table you would like to see <br/>
+
+
+ <br/>
+
+All batches ordered by products (alphabetically)  <form action="./TableAll.php">
+    <input type="submit" value="Show info" />
+</form>
+
+ <br/>
+
+All batches ordered by expirationdate  <form action="./TableByExpi.php">
+    <input type="submit" value="Show info" />
+</form>
+
+ <br/>All batches ordered by storagefacility and storagenumber  <form action="./TableByFacility.php">
+    <input type="submit" value="Show info" />
+</form>
+
+ <br/>All products ordered by quantity in stock and facility they are stored in <form action="./TableByQuant.php">
+    <input type="submit" value="Show info" />
+</form>
+
+ <br/>
+
+
+<a href=" ../index.html"> Home</a>     <a href=" ../About.html"> About </a>
+
+</body>
+
+</html>
+
+
+

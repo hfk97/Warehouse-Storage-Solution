@@ -1,0 +1,71 @@
+<form action="insertInfoProcess.php" method="POST">
+<h1>Confirm information, choose storageplace</h1>
+
+<?php
+
+$product= $_POST[product]; 
+$id= $_POST[id]; 
+$prod_date= date("m-d-Y", strtotime($_POST[prod_date]));
+$exp_date= date("m-d-Y", strtotime($_POST[exp_date]));
+$quantity=$_POST[quantity];
+$f_number=$_POST[f_number];
+
+
+if($prod_date=="01-01-1970" or $exp_date=="01-01-1970"){
+        echo "ERROR: please choose a production and expiration date";
+
+}
+
+else {
+if($id==null){
+        echo "ERROR: Incomplete input, try again";
+
+}
+
+else{
+	$dbconn = pg_connect("host=localhost  dbname=h1504978 user=h1504978 password=4225");
+	$query = "select name from product where p_number=$product;";
+	$result = pg_query($query);
+
+	$row = pg_fetch_object($result);
+
+	echo "Product: ".$row->name."  ";
+
+	echo"<input name='product' type='number' value=$_POST[product]>";
+	echo" BatchID: <input name='id' type='number' value=$_POST[id]>";
+	echo" Productiondate: <input name='prod_date' type='date(m-d-Y)' value=$_POST[prod_date]>";
+	echo" Expirationdate: <input name='exp_date' type='date(m-d-Y)' value=$_POST[exp_date]>";
+	echo" Quantity: <input name='quantity' type='number' value=$_POST[quantity]>";
+	echo" Facilitynumber: <input name='f_number' type='number' value=$_POST[f_number]>";
+
+
+		pg_free_result($result);
+?>
+
+Storage number: <select name="s_number">
+
+<?php
+	$dbconn = pg_connect("host=localhost  dbname=h1504978 user=h1504978 password=4225");
+	$query2 = "select s_number,f_number from storageplace where f_number=$f_number except select s_number,f_number from storageplace natural join stored_in where f_number=$f_number order by f_number,s_number;";
+	$result2 = pg_query($query2);
+
+	$row2 = pg_fetch_object($result2);
+
+	echo "<option>(select)</option>"; 
+	while($row2!=null) {
+	echo "<option value='$row2->s_number'>$row2->s_number</option>"; 
+	$row2 = pg_fetch_object($result2);
+	}
+	pg_free_result($result2);
+	pg_close($dbconn);
+
+
+	echo "</select>";
+
+	echo "<input type='submit' value='add batch'>";
+}
+}
+?>
+<br>
+<br>
+<a href=" ../index.html"> Home</a>     <a href="./forminsert.php?/"> Back</a>     <a href=" ../About.html"> About</a>

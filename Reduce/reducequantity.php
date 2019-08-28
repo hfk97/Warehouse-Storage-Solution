@@ -1,0 +1,59 @@
+<style>
+		table, th, tr, td {
+		border: 1px solid black;
+		}
+	</style>  
+<body>
+
+
+<?php
+
+$id=$_POST[id]; 
+$reduce= $_POST[reduce];
+$init_val=0;
+$dbconn = pg_connect("host=localhost dbname=h1504978 user=h1504978 password=4225"); 
+
+if($id == null or $id=='Batch - Product - Quantity' or  $reduce==null){
+        echo "<h1>ERROR: You have to choose Batch and quantity</h1>";
+	echo "<br><a href=' http://balrog.wu.ac.at/~h1504978/Final_Project/'> Home</a>     <a href='http://balrog.wu.ac.at/~h1504978/Final_Project/Reduce/formreduce.php?'> Back</a>     <a href=' http://balrog.wu.ac.at/~h1504978/Final_Project/About.html'> About </a>";
+	exit();
+}
+
+
+$query = "select quantity from batch where id='$id';";
+$result = pg_query($query);
+$row = pg_fetch_object($result);
+
+$init_val=$row->quantity;
+
+
+if($reduce >$init_val){
+	echo "<h1>ERROR: Please choose a Batch that has the appropriate quantity or book two seperate batches</h1>";
+
+}
+
+else{
+
+if ($reduce<$init_val){
+	$init_val=$init_val-$reduce;
+	$query2 = "update batch set quantity='$init_val' where batch.id='$id';";
+	$result2 = pg_query($query2);
+	$row2 = pg_fetch_object($result2);
+		echo "<h2> Booking sucessful </h2>";
+}
+
+if ($reduce==$init_val){
+	$query3 = "delete from stored_in where id=$id; delete from batch where id=$id;";
+	$result3 = pg_query($query3);
+	$row3 = pg_fetch_object($result3);
+	echo "<h2> Booking sucessful </h2>";
+	echo "This batch is now finished, its storagespace is empty";
+}
+
+}
+
+
+?>
+<br>
+<a href=" ../index.html"> Home</a>     <a href="./formreduce.php?"> Back</a>     <a href=" ../About.html"> About</a>
+
