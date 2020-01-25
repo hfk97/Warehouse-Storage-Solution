@@ -23,7 +23,7 @@ if($id==null){
 }
 
 else{
-	$dbconn = pg_connect("host=localhost  dbname=h1504978 user=h1504978 password=4225");
+	$dbconn = pg_connect("host=localhost  dbname=name user=user1 password=password123");
 	$query = "select name from product where p_number=$product;";
 	$result = pg_query($query);
 
@@ -45,7 +45,7 @@ else{
 Storage number: <select name="s_number">
 
 <?php
-	$dbconn = pg_connect("host=localhost  dbname=h1504978 user=h1504978 password=4225");
+	$dbconn = pg_connect("host=localhost  dbname=name user=user1 password=password123");
 	$query2 = "select s_number,f_number from storageplace where f_number=$f_number except select s_number,f_number from storageplace natural join stored_in where f_number=$f_number order by f_number,s_number;";
 	$result2 = pg_query($query2);
 

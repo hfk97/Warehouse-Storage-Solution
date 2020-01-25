@@ -22,7 +22,7 @@ echo"<table>
 
 </tr>";
 
-$dbconn = pg_connect("host=localhost dbname=h1504978 user=h1504978 password=4225");
+$dbconn = pg_connect("host=localhost dbname=name user=user1 password=password123");
 
 $query = "select name,F_number,sum(quantity),min(exp_date),description from stored_in natural join batch natural join product group by name,f_number,description order by sum(quantity);";
 $result = pg_query ($query);

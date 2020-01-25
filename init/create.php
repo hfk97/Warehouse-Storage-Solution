@@ -1,6 +1,6 @@
 <?php
 
-$dbconn = pg_connect("host=localhost dbname=h1504978 user=h1504978 password=4225"); 
+$dbconn = pg_connect("host=localhost dbname=name user=user1 password=password123"); 
 
 
 $query = "create table Product (p_number int, Name varchar(30) unique, Description

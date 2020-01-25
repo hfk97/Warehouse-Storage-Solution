@@ -11,7 +11,7 @@ if($name == null and $id==null){
 
 else{
 if ($name!=null){
-        $dbconn = pg_connect("host=localhost dbname=h1504978 user=h1504978 password=4225"); 
+        $dbconn = pg_connect("host=localhost dbname=name user=user1 password=password123");
         $query = "select ID,name,description,Quantity,S_number,F_number from stored_in natural join batch natural join product where product.p_number=batch.p_number and product.name like '%$name%' order by p_number;";
 
         $result = pg_query($query);
@@ -19,7 +19,7 @@ if ($name!=null){
 } 
 
 else{
-        $dbconn = pg_connect("host=localhost dbname=h1504978 user=h1504978 password=4225"); 
+        $dbconn = pg_connect("host=localhost dbname=name user=user1 password=password123");
         $query = "select ID,name,description,Quantity,S_number,F_number from stored_in natural join batch natural join product where product.p_number=batch.p_number and batch.id=$id order by p_number;";
 
         $result = pg_query($query);

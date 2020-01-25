@@ -10,7 +10,7 @@
 
 $name= $_POST[name]; 
 $description= $_POST[description];
-
+dbname=name user=user1 password=password123
 
 if($name==null or $description==null){
 echo "<h1> ERROR: You forgot to insert product name or description </h1>";
@@ -19,7 +19,7 @@ echo "<h1> ERROR: You forgot to insert product name or description </h1>";
 
 else{
 
-$dbconn = pg_connect("host=localhost dbname=h1504978 user=h1504978 password=4225"); 
+$dbconn = pg_connect("host=localhost dbname=name user=user1 password=password123"); 
 
 $query="select count(name) from product where name like '$name';";
 $result=pg_query($query);
@@ -32,7 +32,7 @@ echo "Tipp: if you want to add the same product but with a different description
 
 
 else{
-$dbconn = pg_connect("host=localhost dbname=h1504978 user=h1504978 password=4225"); 
+$dbconn = pg_connect("host=localhost dbname=name user=user1 password=password123"); 
 
 $query0="select max(p_number) from product;";
 $result0=pg_query($query0);

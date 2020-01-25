@@ -16,7 +16,7 @@ Product:
 <select name="product">
 
 <?php
-	$dbconn = pg_connect("host=localhost  dbname=h1504978 user=h1504978 password=4225");
+	$dbconn = pg_connect("host=localhost  dbname=name user=user1 password=password123");
 	$query = "select name,p_number from product order by name;";
 	$result = pg_query($query);
 
@@ -85,7 +85,7 @@ Facility:
 <select name="f_number">
 
 <?php
-	$dbconn = pg_connect("host=localhost  dbname=h1504978 user=h1504978 password=4225");
+	$dbconn = pg_connect("host=localhost  dbname=name user=user1 password=password123");
 	$query2 = "select name,f_number from Storage;";
 	$result2 = pg_query($query2);
 

@@ -3,7 +3,7 @@
 <h1> Reduce stored quantity: </h1>
 Product: <select name="id">
 	<?php
-        $dbconn = pg_connect("host=localhost  dbname=h1504978 user=h1504978 password=4225");
+        $dbconn = pg_connect("host=localhost  dbname=name user=user1 password=password123");
     
         $query = "select id,name,quantity from batch,product where product.p_number=batch.p_number order by name;";
         $result = pg_query($query);

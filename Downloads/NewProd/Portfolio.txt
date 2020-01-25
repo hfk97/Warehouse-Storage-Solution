@@ -2,7 +2,7 @@
 <html>
 
 <style>
-table, th, tr, td {
+table, th, tr, td {dbname=name user=user1 password=password123
 border: 1px solid black;
 }
 </style>
@@ -14,7 +14,7 @@ border: 1px solid black;
 <?php
     
     
-    $dbconn = pg_connect("host=localhost dbname=h1504978 user=h1504978 password=4225");
+    $dbconn = pg_connect("host=localhost dbname=name user=user1 password=password123");
     
     
     $query1="select count (p_number) from Product;";

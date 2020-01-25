@@ -21,7 +21,7 @@ Product description: <input type="text" name="description">
 
 Product: <select name="p_number">
 <?php
-        $dbconn = pg_connect("host=localhost  dbname=h1504978 user=h1504978 password=4225");
+        $dbconn = pg_connect("host=localhost  dbname=name user=user1 password=password123");
     
         $query = "select * from product order by name;";
         $result = pg_query($query);

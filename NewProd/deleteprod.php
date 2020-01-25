@@ -16,7 +16,7 @@ else{
 
 
 
-$dbconn = pg_connect("host=localhost dbname=h1504978 user=h1504978 password=4225"); 
+$dbconn = pg_connect("host=localhost dbname=name user=user1 password=password123");
 
 $query="select count(p_number) from product natural join batch where product.p_number=batch.p_number and description like '$description';";
 $result=pg_query($query);
@@ -29,7 +29,7 @@ echo "<h1> ERROR: Products can only be deleted if there is no Batch containing t
 
 else{
 
-$dbconn = pg_connect("host=localhost dbname=h1504978 user=h1504978 password=4225"); 
+$dbconn = pg_connect("host=localhost dbname=name user=user1 password=password123"); 
 
 $query0="delete from product where p_number=$p_number;";
 $result0=pg_query($query0);

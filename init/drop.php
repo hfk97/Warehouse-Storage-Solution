@@ -1,6 +1,6 @@
 <?php
 
-$dbconn = pg_connect("host=localhost dbname=h1504978 user=h1504978 password=4225"); 
+$dbconn = pg_connect("host=localhost dbname=name user=user1 password=password123"); 
 
 pg_query("drop table stored_in;");
 

@@ -11,7 +11,7 @@
 $id=$_POST[id]; 
 $reduce= $_POST[reduce];
 $init_val=0;
-$dbconn = pg_connect("host=localhost dbname=h1504978 user=h1504978 password=4225"); 
+$dbconn = pg_connect("host=localhost dbname=name user=user1 password=password123"); 
 
 if($id == null or $id=='Batch - Product - Quantity' or  $reduce==null){
         echo "<h1>ERROR: You have to choose Batch and quantity</h1>";

@@ -1,4 +1,4 @@
-
+dbname=name user=user1 password=password123
 <html>
 
 <style>
@@ -23,7 +23,7 @@ echo"<table>
         <td>Expirationdate</td>
 </tr>";
 
-$dbconn = pg_connect("host=localhost dbname=h1504978 user=h1504978 password=4225");
+$dbconn = pg_connect("host=localhost dbname=name user=user1 password=password123");
 
 $query = "select ID,name,description,Quantity,S_number,F_number,exp_date from stored_in natural join batch natural join product order by f_number,s_number;";
 $result = pg_query ($query);
